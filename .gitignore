@@ -1,0 +1,16 @@
+/* npm packages */
+node_modules/
+
+/* library lock */
+package-lock.json
+npm-debug.*
+yarn-error.log
+
+/* IDE */
+.idea/*
+
+/* OS file */
+.DS_Store
+
+/* build */
+dist/
