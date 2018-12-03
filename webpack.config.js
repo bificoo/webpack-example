@@ -55,45 +55,32 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "babel-loader",
                 options: {
-                    presets: [
-                        [
-                            "env", {
-                                "targets": { "ie": "11" }
-                            }
-                        ],
-                        "react"
-                    ],
+                    presets: ["env", "react"],
                     plugins: ["transform-class-properties"]
                 }
             },
             {
                 test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+            },
+            {
+                test: /\.sass$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader
                 }, {
                     loader: "css-loader",
                     options: {
-                        sourceMap: true,
+                        sourceMap: true
                     }
                 }, {
                     loader: "postcss-loader",
-                }]
-            },
-            {
-                test: /\.sass$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader",
                     options: {
-                        sourceMap: true,
+                        sourceMap: true
                     }
-                }, {
-                    loader: "postcss-loader",
                 }, {
                     loader: "sass-loader",
                     options: {
-                        sourceMap: true,
+                        sourceMap: true
                     }
                 }]
             },
@@ -160,5 +147,6 @@ module.exports = {
     },
     performance: {
         hints: false
-    }
+    },
+    devtool: devMode ? "cheap-module-source-map" : "nosources-source-map"
 };
