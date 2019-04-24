@@ -1,11 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
 import Button from "devextreme-react/button";
-
-import "devextreme/dist/css/dx.light";
 import "./style";
 
-class Application extends React.Component {
+class Main extends React.Component {
 
     state = {
         name: "Peggy Shih",
@@ -20,19 +17,13 @@ class Application extends React.Component {
     };
 
     render() {
-        return <article>
-            <header>Webpack4 Example</header>
+        return (
             <section>
                 <p>{ `I am ${ this.state.name }.` }</p>
                 <Button text={ "Click me!" } disabled={ this.state.disabled } onClick={ this.handleClick } />
             </section>
-            <footer>copyright@bificoo</footer>
-        </article>;
+        );
     }
-}
+};
 
-
-ReactDOM.render(
-    <Application />,
-    document.getElementById("wrapper")
-);
+export default Main;
